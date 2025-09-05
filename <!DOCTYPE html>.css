@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XpertSolutions – Professional Relationship Solutions</title>
 <style>
 :root {
@@ -90,45 +90,35 @@ section.bg-light { background: #f9fafb; }
 .member-btn { display: block; width: 100%; padding: 0.5rem; border: 1px solid var(--violet-light); border-radius: 0.375rem; text-align: center; color: var(--primary); font-size: 0.9rem; transition: background 0.3s; }
 .member-btn:hover { background: var(--violet-light); }
 
-/* CONTACT */
+/* Contact */
 .contact-info { display: flex; flex-direction: column; align-items: center; gap: 1rem; font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; }
 .contact-item { display: flex; align-items: center; gap: 0.5rem; }
 .contact-item svg { width: 1.25rem; height: 1.25rem; color: var(--primary); }
 .contact-btn { display: inline-block; padding: 0.75rem 2rem; background: var(--primary); color: white; border-radius: 0.375rem; font-weight: 600; transition: background 0.3s; }
 .contact-btn:hover { background: var(--primary-dark); }
 
-/* === Partners Section (artistic) === */
-.partners-wrap { max-width: 1100px; margin: 0 auto; }
-.partner-grid {  
+/* Partners Section */
+.partner-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.25rem; align-items: stretch; justify-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-.partner {
-  position: relative; background: radial-gradient(120% 140% at 0% 0%, var(--purple-light) 0%, #fff 65%);
-  border: 1px solid var(--border-light); border-radius: 16px; padding: 18px; 
-  display: grid; place-items: center; overflow: hidden;
-  box-shadow: 0 6px 18px rgba(17,24,39,.06);
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+.partner-grid img {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.3s, filter 0.3s;
 }
-.partner::after{ /* soft highlight sweep */
-  content:""; position:absolute; inset:-40% -30% auto auto; width:60%; height:200%;
-  transform: rotate(25deg); pointer-events:none;
-  background: radial-gradient(closest-side, rgba(139,85,163,.12), transparent 70%);
-  filter: blur(20px);
+.partner-grid img:hover {
+  filter: none;
+  opacity: 1;
 }
-.partner:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(17,24,39,.12); border-color: var(--violet-light); }
-.partner img {
-  max-height: 80px; width: auto; object-fit: contain; display:block;
-  filter: grayscale(100%) contrast(1.05) brightness(.98);
-  opacity: .9; transition: filter .25s ease, opacity .25s ease, transform .25s ease;
-}
-.partner:hover img {
-  filter: none drop-shadow(0 0 10px rgba(107,58,145,.25)) drop-shadow(0 0 24px rgba(139,85,163,.18));
-  opacity: 1; transform: translateZ(0);
-}
-/* Optional “neon” variant if you add class="partner neon" */
-.partner.neon:hover img { filter: none drop-shadow(0 0 12px rgba(74,118,255,.45)) drop-shadow(0 0 32px rgba(74,118,255,.28)); }
 
 /* Footer */
 footer { background: #111827; color: #9CA3AF; padding: 3rem 0; text-align: center; }
@@ -154,7 +144,6 @@ footer p { margin-bottom: 0.25rem; }
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#team">Team</a></li>
-      <li><a href="#partners">Partners</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -170,6 +159,8 @@ footer p { margin-bottom: 0.25rem; }
     </div>
   </div>
 </section>
+
+<!-- Partners Section placeholder removed; repositioned later -->
 
 <section id="about">
   <div class="container">
@@ -223,6 +214,7 @@ footer p { margin-bottom: 0.25rem; }
         <h4>Set Measurable KPIs</h4>
         <p>Establish clear Key Performance Indices – with an emphasis on speed of delivery and tangible results – to measure your success.</p>
       </div>
+      <!-- New action card emphasising two‑way communication -->
       <div class="action-card">
         <div class="icon-circle">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -239,31 +231,32 @@ footer p { margin-bottom: 0.25rem; }
 <section id="services" class="bg-light">
   <div class="container">
     <h2 class="section-title">What We Do</h2>
-    <p style="text-align:center; font-size:1.25rem; max-width:800px; margin:0 auto 2rem auto; color: var(--text-gray);">We provide our clients with integrated range of communication &amp; consultancy services spanning:</p>
+    <p style="text-align:center; font-size:1.25rem; max-width:800px; margin:0 auto 2rem auto; color: var(--text-gray);">We provide our clients with integrated range of communication & consultancy services spanning:</p>
     <div class="services-grid">
       <div class="service-card">
         <h4>Key Opinion Formers (KOFs)/HCPs Management</h4>
         <ul>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Federal &amp; States Government</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>National Planning Commission</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>NGOs (Local &amp; International)</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Scientists &amp; Academia</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Office of First Ladies</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Parliamentarians</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Traditional Rulers</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Market Leaders</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Federal &amp; States Government</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>National Planning Commission</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>NGOs (Local &amp; International)</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Scientists &amp; Academia</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Office of First Ladies</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Parliamentarians</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Traditional Rulers</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Market Leaders</span></li>
         </ul>
       </div>
       <div class="service-card">
         <h4>Professional Services</h4>
         <ul>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Building professional network &amp; relationships with health influencers</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Relationship management &amp; lobbying</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Consultancy (Nutrition, Health &amp; Management, Research)</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Schools &amp; Community Nutrition &amp; Health Education</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Activation &amp; Event Management</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Public Relations</span></li>
-          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Training &amp; Leadership Development</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Building professional network &amp; relationships with health influencers</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Relationship management &amp; lobbying</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Consultancy (Nutrition, Health &amp; Management, Research)</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Schools &amp; Community Nutrition &amp; Health Education</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Activation &amp; Event Management</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Sampling &amp; Sales promotion</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Public Relations</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Training &amp; Leadership Development</span></li>
         </ul>
       </div>
     </div>
@@ -295,15 +288,18 @@ footer p { margin-bottom: 0.25rem; }
   <div class="container">
     <h2 class="section-title">Meet Our Team</h2>
     <div class="team-grid">
+      <!-- MD/Lead Consultant -->
       <div class="member-card">
         <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop&crop=faces');"></div>
         <div class="member-info">
           <h4>Foluso Babasola</h4>
           <span>MD/CEO &amp; Lead Consultant</span>
           <p>With over 20 years of diverse experience across Marketing, Nutrition &amp; Health Management, Public Relations and Nursing. Former Country Nutrition &amp; Health Manager (West Africa), Brand Manager and Assistant Brand Manager at Unilever. Also served as Corporate Relations Manager and Matron at a leading fertility clinic and hospital. Alumna of the African Nutrition Leadership Programme, Wageningen University &amp; Research and the University of Lagos. Registered Nurse and Midwife, Fellow of the Nutrition Society of Nigeria (FNSN) and active in several professional and public health initiatives.</p>
+          <!-- Updated LinkedIn URL for Foluso Babasola -->
           <a href="https://www.linkedin.com/in/foluso-babasola-3a350b34" class="member-btn">LinkedIn</a>
         </div>
       </div>
+      <!-- Finance/Projects Director -->
       <div class="member-card">
         <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces');"></div>
         <div class="member-info">
@@ -313,6 +309,7 @@ footer p { margin-bottom: 0.25rem; }
           <a href="#" class="member-btn">LinkedIn</a>
         </div>
       </div>
+      <!-- Client Service/Relationship Director -->
       <div class="member-card">
         <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces');"></div>
         <div class="member-info">
@@ -322,6 +319,7 @@ footer p { margin-bottom: 0.25rem; }
           <a href="#" class="member-btn">LinkedIn</a>
         </div>
       </div>
+      <!-- Creative/Innovation Director -->
       <div class="member-card">
         <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop&crop=faces');"></div>
         <div class="member-info">
@@ -331,15 +329,18 @@ footer p { margin-bottom: 0.25rem; }
           <a href="#" class="member-btn">LinkedIn</a>
         </div>
       </div>
+      <!-- Legal Services Director / Data Analyst -->
       <div class="member-card">
         <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=400&fit=crop&crop=faces');"></div>
         <div class="member-info">
           <h4>Abimbola Babasola</h4>
           <span>Legal Services Director &amp; Data Analyst</span>
           <p>Oversees all legal and compliance matters and provides data‑driven insights to support strategic decision making and ensure our clients’ interests are protected.</p>
+          <!-- Updated LinkedIn URL for Babasola Oluwafolakemi -->
           <a href="https://www.linkedin.com/in/babasola-oluwafolakemi/" class="member-btn">LinkedIn</a>
         </div>
       </div>
+      <!-- Logistics Director -->
       <div class="member-card">
         <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop&crop=faces');"></div>
         <div class="member-info">
@@ -355,21 +356,45 @@ footer p { margin-bottom: 0.25rem; }
 
 <!-- Partners Section -->
 <section id="partners" class="bg-light">
-  <div class="container partners-wrap">
+  <div class="container">
     <h2 class="section-title">Our Partners</h2>
     <div class="partner-grid">
-      <figure class="partner"><img src="./images/bournvita_logo.png" alt="Cadbury Bournvita" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner neon"><img src="./images/peak_milk_logo.png" alt="Peak Milk" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/promasidor_logo.png" alt="Promasidor" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/omo_logo.png" alt="OMO" width="140" height="100" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/dangote_logoo.png" alt="Dangote" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/pears_logo.png" alt="Pears" width="30" height="30" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/closeup_logo.png" alt="Closeup" width="180" height="120" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/vaseline_logo.png" alt="Vaseline" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/blueband_logo.webp" alt="Blue Band" width="100" height="60" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/unilever_logo.png" alt="Unilever" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/pepsodent_logo.png" alt="Pepsodent" width="160" height="100" loading="lazy" decoding="async" fetchpriority="low" /></figure>
-      <figure class="partner"><img src="./images/unitedbiscuits_logo.png" alt="United Biscuits" width="120" height="80" loading="lazy" decoding="async" fetchpriority="low" /></figure>
+      <a href="https://www.bournvita.ng/" target="_blank" rel="noopener">
+        <img src="./images/bournvita_logo.png" alt="Cadbury Bournvita" width="120" height="80" loading="lazy">
+      </a>
+      <a href="https://www.peakmilk.com.ng/" target="_blank" rel="noopener">
+        <img src="./images/peak_milk_logo.png" alt="Peak Milk" width="120" height="80" loading="lazy">
+      </a>
+      <a href="https://www.promasidor.com/" target="_blank" rel="noopener">
+        <img src="./images/promasidor_logo.png" alt="Promasidor" width="120" height="80" loading="lazy">
+      </a>
+      <a href="https://www.unilever.com/brands/home-care/omo/" target="_blank" rel="noopener">
+        <img src="./images/omo_logo.png" alt="OMO" width="140" height="100" loading="lazy">
+      </a>
+      <a href="https://www.dangote.com/" target="_blank" rel="noopener">
+        <img src="./images/dangote_logoo.png" alt="Dangote" width="120" height="80" loading="lazy">
+      </a>
+      <a href="https://www.pearspuresince1807.com/us/en/home.html" target="_blank" rel="noopener">
+        <img src="./images/pears_logo.png" alt="Pears" width="40" height="30" loading="lazy">
+      </a>
+      <a href="https://www.close-up.com/in/home.html" target="_blank" rel="noopener">
+        <img src="./images/closeup_logo.png" alt="Closeup" width="400" height="300" loading="lazy">
+      </a>
+      <a href="https://www.vaseline.com/" target="_blank" rel="noopener">
+        <img src="./images/vaseline_logo.png" alt="Vaseline" width="120" height="80" loading="lazy">
+      </a>
+      <a href="https://www.blueband.com/en-ke" target="_blank" rel="noopener">
+        <img src="./images/blueband_logo.webp" alt="Blue Band" width="100" height="60" loading="lazy">
+      </a>
+      <a href="https://www.unilever.com/" target="_blank" rel="noopener">
+        <img src="./images/unilever_logo.png" alt="Unilever" width="120" height="80" loading="lazy">
+      </a>
+      <a href="https://www.pepsodent.in/home.html" target="_blank" rel="noopener">
+        <img src="./images/pepsodent_logo.png" alt="Pepsodent" width="200" height="150" loading="lazy">
+      </a>
+      <a href="https://www.pladisglobal.com/" target="_blank" rel="noopener">
+        <img src="./images/unitedbiscuits_logo.png" alt="United Biscuits" width="120" height="80" loading="lazy">
+      </a>
     </div>
   </div>
 </section>
