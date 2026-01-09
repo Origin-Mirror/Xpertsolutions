@@ -107,11 +107,24 @@ section.bg-light { background: #f9fafb; }
 .member-details p { margin-top: .5rem; font-size: .92rem; color: var(--text-gray); }
 
 /* CONTACT */
-.contact-info { display: flex; flex-direction: column; align-items: center; gap: 1rem; font-size: 1.1rem; color: var(--text-gray); margin-bottom: 2rem; }
-.contact-item { display: flex; align-items: center; gap: 0.5rem; }
-.contact-item svg { width: 1.25rem; height: 1.25rem; color: var(--primary); }
-.contact-btn { display: inline-block; padding: 0.75rem 2rem; background: var(--primary); color: white; border-radius: 0.375rem; font-weight: 600; transition: background 0.3s; }
-.contact-btn:hover { background: var(--primary-dark); }
+#contact { position: relative; background: linear-gradient(135deg, var(--purple-light), #fff); overflow: hidden; }
+.contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1100px; margin: 0 auto; padding: 2rem 0; }
+.contact-block { background: white; border: 1px solid var(--border-light); border-radius: 16px; padding: 2rem; box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.contact-block:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(17, 24, 39, 0.12); }
+.contact-block-title { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+.contact-block-title svg { width: 1.5rem; height: 1.5rem; color: var(--accent); }
+.contact-details { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-detail-item { display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+.contact-detail-item svg { width: 1.1rem; height: 1.1rem; color: var(--primary); flex-shrink: 0; margin-top: 0.2rem; }
+.contact-detail-item a { color: var(--primary); font-weight: 600; transition: color 0.3s; }
+.contact-detail-item a:hover { color: var(--primary-dark); text-decoration: underline; }
+.contact-intro { text-align: center; margin-bottom: 2rem; }
+.contact-intro p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: var(--text-gray); }
+.contact-cta { display: flex; flex-direction: column; gap: 1rem; align-items: center; margin-top: 2rem; }
+.contact-btn { display: inline-block; padding: 1rem 2.5rem; background: var(--primary); color: white; border-radius: 0.5rem; font-weight: 700; font-size: 1rem; transition: background 0.3s, transform 0.2s; cursor: pointer; border: none; }
+.contact-btn:hover { background: var(--primary-dark); transform: scale(1.05); }
+.contact-btn:active { transform: scale(0.98); }
+@media (max-width: 820px) { .contact-wrapper { gap: 2rem; } .contact-block { padding: 1.5rem; } }
 
 /* === Partners Section (artistic) === */
 .partners-wrap { max-width: 1100px; margin: 0 auto; }
@@ -254,6 +267,132 @@ footer p { margin-bottom: 0.25rem; }
 #about ul li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-gray); }
 #about ul li::before { content: '\2022'; color: var(--accent); font-weight: bold; position: absolute; left: 0; }
 .member-card::after{ pointer-events:none; }
+
+/* ===== PORTFOLIO SLIDESHOW ===== */
+.portfolio-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--purple-light), #fff);
+  overflow: hidden;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(17, 24, 39, 0.15);
+  animation: fadeIn 0.6s ease-in;
+}
+
+.slide.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+}
+
+.slideshow-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.slide-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+.slide-btn:active {
+  transform: scale(0.95);
+}
+
+.slide-counter {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 100px;
+  text-align: center;
+}
+
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-light);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.indicator-dot.active {
+  background: var(--primary);
+  transform: scale(1.3);
+}
+
+.indicator-dot:hover {
+  background: var(--violet-light);
+}
+
+@media (max-width: 820px) {
+  .slideshow-nav {
+    gap: 1rem;
+  }
+
+  .slide-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .slide-counter {
+    font-size: 0.95rem;
+  }
+
+  .indicator-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
 </style>
 </head>
 <body>
@@ -266,6 +405,7 @@ footer p { margin-bottom: 0.25rem; }
     <ul id="primary-menu">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#partners">Partners</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -437,6 +577,61 @@ footer p { margin-bottom: 0.25rem; }
   </div>
 </section>
 
+<!-- ====== PORTFOLIO / PROJECT SHOWCASE ====== -->
+<section id="portfolio" class="portfolio-section">
+  <div class="container">
+    <h2 class="section-title">Our Work in Action</h2>
+    <p style="text-align:center; font-size:1.1rem; max-width:800px; margin:0 auto 2.5rem auto; color: var(--text-gray);">See the projects and events we've successfully delivered for our clients across healthcare, government relations, and community engagement.</p>
+    
+    <div class="slideshow-container">
+      <!-- Slides -->
+      <div class="slide active">
+        <img src="./work images/IMG_7552.jpeg" alt="Project showcase image 1" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7553.jpeg" alt="Project showcase image 2" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7557.jpeg" alt="Project showcase image 3" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7558.jpeg" alt="Project showcase image 4" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7559.jpeg" alt="Project showcase image 5" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7560.jpeg" alt="Project showcase image 6" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7561.jpeg" alt="Project showcase image 7" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7562.jpeg" alt="Project showcase image 8" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7563.jpeg" alt="Project showcase image 9" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7564.jpeg" alt="Project showcase image 10" loading="lazy" decoding="async" />
+      </div>
+      <div class="slide">
+        <img src="./work images/IMG_7565.jpeg" alt="Project showcase image 11" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- Navigation -->
+      <div class="slideshow-nav">
+        <button class="slide-btn" id="prevBtn" aria-label="Previous image">&#10094;</button>
+        <span class="slide-counter"><span id="currentSlide">1</span> / 11</span>
+        <button class="slide-btn" id="nextBtn" aria-label="Next image">&#10095;</button>
+      </div>
+
+      <!-- Indicators -->
+      <div class="slide-indicators" id="indicatorsContainer"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ====== MEET OUR TEAM (CREATIVE – NO PHOTOS, NO LINKEDIN) ====== -->
 <section id="team" class="bg-light">
   <div class="container">
@@ -451,15 +646,15 @@ footer p { margin-bottom: 0.25rem; }
             <span>MD/CEO &amp; Lead Consultant</span>
           </div>
         </div>
-        <p class="member-blurb">20+ years integrating Marketing, Nutrition &amp; Health Management, PR and Nursing into outcome-driven strategy.</p>
+        <p class="member-blurb">20+ years integrating Marketing, Nutrition & Health Management, PR and Nursing into outcome-driven strategy.</p>
         <div class="member-tags">
-          <span class="tag">Leadership</span>
-          <span class="tag">Public Health</span>
-          <span class="tag">Brand Strategy</span>
+          <span class="tag">MD/CEO & Lead Consultant</span>
+          <span class="tag">Public Health Leader</span>
+          <span class="tag">20+ Years Experience</span>
         </div>
         <details class="member-details">
           <summary>Read full bio</summary>
-          <p>With over 20 years of diverse experience across Marketing, Nutrition &amp; Health Management, Public Relations and Nursing. Former Country Nutrition &amp; Health Manager (West Africa), Brand Manager and Assistant Brand Manager at Unilever. Also served as Corporate Relations Manager and Matron at a leading fertility clinic and hospital. Alumna of the African Nutrition Leadership Programme, Wageningen University &amp; Research and the University of Lagos. Registered Nurse and Midwife, Fellow of the Nutrition Society of Nigeria (FNSN) and active in several professional and public health initiatives.</p>
+          <p>Charlotte Foluso Babasola (CFB) is the MD/CEO and Lead Consultant of Charlotte XpertSolutions Limited. She has over 20 years of diverse experience across Marketing, Nutrition & Health Management, Public Relations, and Nursing. Before establishing Charlotte XpertSolutions, she held a Senior Leadership role as Country Nutrition & Health Manager with oversight for West Africa, Brand Manager, and Assistant Brand Manager at a multinational company. She also served as Corporate Relations Manager and Matron at a leading fertility clinic and hospital. A committed lifelong learner, CFB is an alumna of the African Nutrition Leadership Programme (ANLP), South Africa; Wageningen University & Research, Netherlands; and the University of Lagos. She is a Registered Nurse and Midwife with professional recognition as a Fellow of the Nutrition Society of Nigeria (FNSN), where she has served in leadership capacities including National Treasurer, Ex-Officio Council Member, and Chairman of the Linkages, Fundraising & Endorsement Committee. She continues as a member of the NSN Endorsement Committee. Additionally, she is a Member of the National Institute of Marketing of Nigeria (NIMN), a Volunteer with the Nigerian Heart Foundation (NHF), and actively engages in public health initiatives as part of the Lagos State Maternal, Newborn & Child Health (MNCH) Week monitoring team and the Lagos State Resource Mobilisation Committee. CFB's unique blend of expertise in Health, Nutrition, Marketing, and Leadership underscores her commitment to driving impactful solutions and advancing Public Health both locally and globally.</p>
         </details>
       </div>
 
@@ -472,15 +667,15 @@ footer p { margin-bottom: 0.25rem; }
             <span>Finance/Projects Director</span>
           </div>
         </div>
-        <p class="member-blurb">ICAN Chartered Accountant steering high-impact national projects with rigorous governance and risk discipline.</p>
+        <p class="member-blurb">Chartered Accountant with financial expertise, project management, and strategic acumen across global brands.</p>
         <div class="member-tags">
           <span class="tag">Finance</span>
-          <span class="tag">Risk</span>
-          <span class="tag">Ops Excellence</span>
+          <span class="tag">Economics PhD</span>
+          <span class="tag">Strategic Leadership</span>
         </div>
         <details class="member-details">
           <summary>Read full bio</summary>
-          <p>Chartered Accountant and Associate Member of ICAN, the Nigerian Institute of Management and the Association of Tax Practitioners of Lagos. Holds Bachelor’s and Master’s degrees in Economics and is currently pursuing a PhD. Certified in Risk Management, Quality Management, Customer Satisfaction and Data Privacy, and proficient in leading accounting software. Has managed high-impact national projects for global brands, including Unilever Nigeria Plc, and is recognised for her integrity, strategic insight and operational excellence.</p>
+          <p>Helen Ojei is a Chartered Accountant and Associate Member of ICAN, NIM, and the Association of Tax Practitioners of Lagos. She holds Bachelor's and Master's degrees in Economics and is currently pursuing a PhD in Economics at Babcock University. Her advanced professional certifications include Risk Management, Quality Management, Customer Satisfaction, and Data Privacy (ISO/IEC 29100:2024). Highly proficient in leading accounting software including Biz Edge, Zoho Books, QuickBooks, and Sage 50. Helen has successfully managed high-impact national projects for global brands including Unilever Nigeria Plc, with strong focus on public health campaigns and market activation. She is recognized for her integrity, strategic insight, and operational excellence, with leadership defined by accountability, professionalism, and passion for excellence.</p>
         </details>
       </div>
 
@@ -493,15 +688,15 @@ footer p { margin-bottom: 0.25rem; }
             <span>Client Service &amp; Relationship Director</span>
           </div>
         </div>
-        <p class="member-blurb">Client advocacy with measurable impact — turning objectives into lasting partnerships.</p>
+        <p class="member-blurb">Relationship strategist with expertise in emotional intelligence and transformational organizational wellness.</p>
         <div class="member-tags">
-          <span class="tag">Client Success</span>
-          <span class="tag">Stakeholders</span>
-          <span class="tag">Quality</span>
+          <span class="tag">Emotional Intelligence</span>
+          <span class="tag">Leadership Development</span>
+          <span class="tag">20+ Years Experience</span>
         </div>
         <details class="member-details">
           <summary>Read full bio</summary>
-          <p>Oversees client service and relationship management, ensuring every client engagement is handled with professionalism and dedication while aligning with the company’s strategic objectives.</p>
+          <p>Folashade Ajayi is an accomplished relationship strategist with expertise in human behaviour, emotional intelligence, and organizational wellness. She holds a Business Management degree from Abia State University and advanced certifications in Emotional Intelligence, Counseling, Positive Psychiatry, and Mental Health from the University of Sydney, Australia. With over two decades of experience, she has advised leaders, teams, and organizations on strengthening interpersonal dynamics, fostering inclusive cultures, and driving performance through effective relationship management. As Executive Director of the Life Skills Empowerment Initiative, she has led transformative programs addressing workplace relationships, mental health, and leadership development across diverse sectors. An accomplished author and international facilitator, Folashade has spoken at universities, leadership institutes, and professional forums including the University of Lagos International Colloquium and the Nigerian Armed Forces Resettlement Centre, where she has served as external facilitator since 2013. In her role at XpertSolutions, she brings a strategic, evidence-based approach to helping organizations enhance collaboration, resolve conflict, and unlock the full potential of their people.</p>
         </details>
       </div>
 
@@ -514,15 +709,15 @@ footer p { margin-bottom: 0.25rem; }
             <span>Creative &amp; Innovation Director</span>
           </div>
         </div>
-        <p class="member-blurb">Designs bold, useful ideas — translating insight into memorable campaigns and activations.</p>
+        <p class="member-blurb">Creative director and founder of transformative women empowerment initiatives reaching thousands annually.</p>
         <div class="member-tags">
-          <span class="tag">Creative</span>
-          <span class="tag">Innovation</span>
-          <span class="tag">Experience</span>
+          <span class="tag">Doctorate in Spirituotherapy</span>
+          <span class="tag">Women Empowerment</span>
+          <span class="tag">Strategic Innovation</span>
         </div>
         <details class="member-details">
           <summary>Read full bio</summary>
-          <p>Leads our creative vision and innovation initiatives, delivering dynamic and impactful solutions that keep clients ahead in an ever-evolving marketplace.</p>
+          <p>Josephine Femi-Asiwaju is the Creative and Innovation Director at Charlotte XpertSolutions Limited. She is an accomplished professional with a Doctoral degree in Clinical Spirituotherapy and Psychotheology, complemented by training in Social Work at Kaduna Polytechnic. With extensive experience in leadership, strategic planning, and program development, Josephine has spearheaded initiatives that empower individuals and organizations to achieve measurable impact. She is the founder of Woman Now and After (WNA) and convener of the Productive Woman Summit, which since 2010 has empowered thousands of women in career advancement, personal development, and entrepreneurship. Josephine combines creativity, strategic insight, and passion for problem-solving, positioning her as a thought leader in designing innovative, people-centered solutions. She continues to champion excellence and transformation across diverse sectors through her role at XpertSolutions.</p>
         </details>
       </div>
 
@@ -535,15 +730,15 @@ footer p { margin-bottom: 0.25rem; }
             <span>Logistics Director</span>
           </div>
         </div>
-        <p class="member-blurb">Orchestrates seamless execution — from suppliers to field — so plans become results on schedule.</p>
+        <p class="member-blurb">Multi-skilled professional blending hospitality expertise with culinary talent and business acumen.</p>
         <div class="member-tags">
-          <span class="tag">Logistics</span>
-          <span class="tag">Execution</span>
-          <span class="tag">Delivery</span>
+          <span class="tag">Culinary Arts & Nutrition</span>
+          <span class="tag">Hotel Management</span>
+          <span class="tag">ACCA Foundation</span>
         </div>
         <details class="member-details">
           <summary>Read full bio</summary>
-          <p>Brings extensive logistics expertise to ensure seamless project execution and delivery, managing supply chains and operations to support our clients’ needs.</p>
+          <p>Remi Adebanwo is a multi-skilled professional with strong academic foundation and hands-on expertise in hospitality, culinary arts, and business management. He studied Marketing at Lagos State University, completed a Diploma in Hotel Management at Inspire London College University, and advanced his knowledge through ACCA Foundation – Applied Knowledge at BPP University, Birmingham. Remi brings extensive logistics expertise to ensure seamless project execution and delivery, managing supply chains and operations to support clients' needs. He combines culinary talent with formal training in nutrition education, food safety and sanitation, and time management. His diverse background in business, hospitality, and accounting provides a unique edge in managing operations efficiently while delivering exceptional customer experiences.</p>
         </details>
       </div>
     </div>
@@ -598,8 +793,166 @@ footer p { margin-bottom: 0.25rem; }
 <section id="contact">
   <div class="container">
     <h2 class="section-title">Get In Touch</h2>
-    <p style="text-align:center; font-size:1.25rem; max-width:700px; margin:0 auto 2rem auto; color: var(--text-gray);">We will bring your brands to life in the hearts and minds of consumers with the right associations. Let us work with you and you will see the tangible difference!</p>
-    <div class="contact-info">
-      <div class="contact-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M16 144a144 144 0 1 1 288 0A144 144 0 1 1 16 144zM160 80c8.8 0 16-7.2 16-16s-7.2-16-16-16c-53 0-96 43-96 96c0 8.8 7.2 16 16 16s16-7.2 16-16c0-35.3 28.7-64 64-64zM128 480l0-162.9c10.4 1.9 21.1 2.9 32 2.9s21.6-1 32-2.9L192 480c0 17.7-14.3 32-32 32s-32-14.3-32-32z"/></svg><span>Lagos, Nigeria</span></div>
-      <div class="contact-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><span>folusobabasola@yahoo.co.uk</span></div>
-      <div class="contact-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-
+    <div class="contact-intro">
+      <p>We will bring your brands to life in the hearts and minds of consumers with the right associations. Let us work with you and you will see the tangible difference!</p>
+    </div>
+
+    <div class="contact-wrapper">
+      <!-- Address Block -->
+      <div class="contact-block">
+        <div class="contact-block-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+          Address
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+            <span>198 Babs Animashaun Street<br/>Surulere, Lagos<br/>Nigeria</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone Block -->
+      <div class="contact-block">
+        <div class="contact-block-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.1-38.7-22.2-47.5l-88-24c-17.3-4.7-38.6.8-48.9 16.1L304 327.7l-51.43-51.43c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25l-32-32c-12.5-12.5-32.75-12.5-45.25 0L304 273.3V112c0-17.7-14.3-32-32-32h-16c-17.7 0-32 14.3-32 32v161.3L165.4 153.4c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25z"/></svg>
+          Telephone
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.1-38.7-22.2-47.5l-88-24c-17.3-4.7-38.6.8-48.9 16.1L304 327.7l-51.43-51.43c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25l-32-32c-12.5-12.5-32.75-12.5-45.25 0L304 273.3V112c0-17.7-14.3-32-32-32h-16c-17.7 0-32 14.3-32 32v161.3L165.4 153.4c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25z"/></svg>
+            <a href="tel:+2348039754315">+234 (0) 803 975 4315</a>
+          </div>
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.1-38.7-22.2-47.5l-88-24c-17.3-4.7-38.6.8-48.9 16.1L304 327.7l-51.43-51.43c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25l-32-32c-12.5-12.5-32.75-12.5-45.25 0L304 273.3V112c0-17.7-14.3-32-32-32h-16c-17.7 0-32 14.3-32 32v161.3L165.4 153.4c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25z"/></svg>
+            <a href="tel:+2348055316570">+234 (0) 805 531 6570</a>
+          </div>
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.1-38.7-22.2-47.5l-88-24c-17.3-4.7-38.6.8-48.9 16.1L304 327.7l-51.43-51.43c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25l-32-32c-12.5-12.5-32.75-12.5-45.25 0L304 273.3V112c0-17.7-14.3-32-32-32h-16c-17.7 0-32 14.3-32 32v161.3L165.4 153.4c-12.5-12.5-32.75-12.5-45.25 0l-32 32c-12.5 12.5-12.5 32.75 0 45.25l96 96c12.5 12.5 32.75 12.5 45.25 0l192-192c12.5-12.5 12.5-32.75 0-45.25z"/></svg>
+            <a href="tel:+2348023003326">+234 (0) 802 300 3326</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Block -->
+      <div class="contact-block">
+        <div class="contact-block-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+          Email
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            <a href="mailto:foluso@charlottexpertsolutions.com">foluso@<br/>charlottexpertsolutions.com</a>
+          </div>
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            <a href="mailto:folusobabasola@yahoo.co.uk">folusobabasola@<br/>yahoo.co.uk</a>
+          </div>
+          <div class="contact-detail-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            <a href="mailto:helenxpett@gmail.com">helenxpett@<br/>gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-cta">
+      <a href="mailto:foluso@charlottexpertsolutions.com" class="contact-btn">Send us an Email</a>
+      <a href="tel:+2348039754315" class="contact-btn" style="background: var(--accent);">Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>XpertSolutions</h3>
+    <p>&copy; 2024 XpertSolutions. All rights reserved.</p>
+    <p>Professional Relationship Solutions | Lagos, Nigeria</p>
+  </div>
+</footer>
+
+<script>
+// Portfolio Slideshow functionality
+let currentSlide = 1;
+const totalSlides = 11;
+
+function showSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  
+  if (n > totalSlides) currentSlide = 1;
+  if (n < 1) currentSlide = totalSlides;
+  
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[currentSlide - 1].classList.add('active');
+  
+  document.getElementById('currentSlide').textContent = currentSlide;
+  updateIndicators();
+}
+
+function nextSlide() {
+  currentSlide++;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide--;
+  showSlide(currentSlide);
+}
+
+function goToSlide(n) {
+  currentSlide = n;
+  showSlide(currentSlide);
+}
+
+function updateIndicators() {
+  const dots = document.querySelectorAll('.indicator-dot');
+  dots.forEach((dot, index) => {
+    if (index + 1 === currentSlide) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
+// Initialize slideshow
+document.addEventListener('DOMContentLoaded', function() {
+  // Create indicator dots
+  const container = document.getElementById('indicatorsContainer');
+  for (let i = 1; i <= totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'indicator-dot' + (i === 1 ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    container.appendChild(dot);
+  }
+  
+  // Add event listeners to buttons
+  document.getElementById('prevBtn').addEventListener('click', prevSlide);
+  document.getElementById('nextBtn').addEventListener('click', nextSlide);
+  
+  // Optional: Auto-advance slideshow every 6 seconds
+  setInterval(nextSlide, 6000);
+});
+
+// Mobile navigation toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.getElementById('primary-menu');
+
+if (navToggle) {
+  navToggle.addEventListener('click', function() {
+    navMenu.classList.toggle('open');
+    this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+  });
+  
+  // Close menu when a link is clicked
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+</script>
+</body>
+</html>
